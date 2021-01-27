@@ -1,0 +1,61 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30804.86
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MainScoresheetOnline.Server", "Server\MainScoresheetOnline.Server.csproj", "{1F4D2B96-8268-42C1-9118-0781662B292D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MainScoresheetOnline.Client", "Client\MainScoresheetOnline.Client.csproj", "{BABC4BD3-6EB5-401B-B469-9D3381057B31}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BasicScoresheetLibrary", "..\..\Libraries\Standard\BasicScoresheetLibrary\BasicScoresheetLibrary.csproj", "{502D6739-36ED-48CE-9676-557B663E9B21}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ScoresheetSignalRLibrary", "..\..\Libraries\Standard\ScoresheetSignalRLibrary\ScoresheetSignalRLibrary.csproj", "{2568BBC5-3240-48E7-80BB-E5C436FE76E5}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChinazoScoresheetLibrary", "..\..\Libraries\ScoresheetCategories\ChinazoScoresheetLibrary\ChinazoScoresheetLibrary.csproj", "{52AC85F6-2E1D-42FA-B643-075667935DC3}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CousinsScoresheetLibrary", "..\..\Libraries\ScoresheetCategories\CousinsScoresheetLibrary\CousinsScoresheetLibrary.csproj", "{57925382-ACD9-416C-B307-CF6B93248F03}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AllScoresLoaderLibrary", "..\..\Libraries\Loaders\AllScoresLoaderLibrary\AllScoresLoaderLibrary.csproj", "{7D32CFE1-817E-42A8-AB7F-3FD4B936A1C0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1F4D2B96-8268-42C1-9118-0781662B292D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F4D2B96-8268-42C1-9118-0781662B292D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F4D2B96-8268-42C1-9118-0781662B292D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F4D2B96-8268-42C1-9118-0781662B292D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BABC4BD3-6EB5-401B-B469-9D3381057B31}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BABC4BD3-6EB5-401B-B469-9D3381057B31}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BABC4BD3-6EB5-401B-B469-9D3381057B31}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BABC4BD3-6EB5-401B-B469-9D3381057B31}.Release|Any CPU.Build.0 = Release|Any CPU
+		{502D6739-36ED-48CE-9676-557B663E9B21}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{502D6739-36ED-48CE-9676-557B663E9B21}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{502D6739-36ED-48CE-9676-557B663E9B21}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{502D6739-36ED-48CE-9676-557B663E9B21}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2568BBC5-3240-48E7-80BB-E5C436FE76E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2568BBC5-3240-48E7-80BB-E5C436FE76E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2568BBC5-3240-48E7-80BB-E5C436FE76E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2568BBC5-3240-48E7-80BB-E5C436FE76E5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{52AC85F6-2E1D-42FA-B643-075667935DC3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52AC85F6-2E1D-42FA-B643-075667935DC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52AC85F6-2E1D-42FA-B643-075667935DC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52AC85F6-2E1D-42FA-B643-075667935DC3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{57925382-ACD9-416C-B307-CF6B93248F03}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57925382-ACD9-416C-B307-CF6B93248F03}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57925382-ACD9-416C-B307-CF6B93248F03}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57925382-ACD9-416C-B307-CF6B93248F03}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7D32CFE1-817E-42A8-AB7F-3FD4B936A1C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D32CFE1-817E-42A8-AB7F-3FD4B936A1C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D32CFE1-817E-42A8-AB7F-3FD4B936A1C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7D32CFE1-817E-42A8-AB7F-3FD4B936A1C0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {24925D01-6743-46E2-B263-5BDD22C9C9AD}
+	EndGlobalSection
+EndGlobal
