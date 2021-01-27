@@ -260,3 +260,6 @@ paket-files/
 __pycache__/
 *.pyc
 /GamePackageBundles/AndyFavoriteSoloGames/Properties/ServiceDependencies/GPXBetaAndyFavoriteSoloGamesV1 - Web Deploy/profile.arm.json
+/Sites/MainScoresheetOnline/Server/Properties/PublishProfiles/musictopiascoresheetonline - Web Deploy.pubxml
+/Sites/MainScoresheetOnline/Server/Properties/PublishProfiles/musictopiascoresheetonline - Web Deploy.pubxml
+/Sites/MainScoresheetOnline/Server/Properties/ServiceDependencies/musictopiascoresheetonline - Web Deploy/profile.arm.json
