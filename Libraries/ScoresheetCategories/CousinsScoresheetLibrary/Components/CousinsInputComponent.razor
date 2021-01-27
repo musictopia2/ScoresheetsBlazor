@@ -1,0 +1,14 @@
+﻿@inherits BaseInputComponent<ICousinsViewModel>
+@if (DataContext!.Players.Count == 0)
+{
+    <div>Loading....</div>
+    return; //could create a loading screen eventually
+}
+<CousinsCore ClearClicked="ClearAsync"
+                  Players="DataContext.Players"
+                  OnPersonChange="UpdatePlayersAsync"
+                  OnScoreChange="UpdateScoresAsync"
+                  Categories="CousinsGlobalClass.Categories"
+                  BackClicked="BackClickedAsync"
+                  ReadOnly="false"
+                  ScoreStorage="Storage" />

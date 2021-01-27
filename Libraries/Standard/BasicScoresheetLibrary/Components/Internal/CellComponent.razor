@@ -1,0 +1,13 @@
+﻿<div @onclick="PrivateClicked" style="font-size: @TextSize; " class="customborder">
+    @if (ChildContent != null)
+    {
+        <div style="text-align: @TextAlignment.ToString().ToLower()">
+            @ChildContent
+        </div>
+
+    }
+    else
+    {
+        <div>&nbsp;</div>
+    }
+</div>

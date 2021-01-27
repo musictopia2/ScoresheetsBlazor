@@ -1,0 +1,36 @@
+﻿@if (ScoreStorage == null)
+{
+    <div>Did not set the score storage</div>
+    return;
+}
+@if (_players.Count == 1)
+{
+    <div>Needs at least 1 player in order to do the default players</div>
+    return;
+}
+<PopupCenteredStandard ShowHeader="false"
+                       ShowCloseButton="false"
+                       Height="70vh"
+                       Scrollable="false"
+                       Visible="true"
+                       >
+    <NavigationBarContainer
+                            Title="@ScoreStorage.Title"
+                            AlwaysShowBar="true"
+                            BackClicked="OnCancelAsync"
+                            CircleColor="aqua"
+                            >
+        <BarContent>
+            <HorizontalDiv RightOnly="35px">
+                <SaveComponent SaveClicked="SavePlayersAsync" TargetHeight="3rem" FillColor="aqua" />
+            </HorizontalDiv>
+        </BarContent>
+    </NavigationBarContainer>
+
+    @foreach (var player in _players)
+    {
+        //if i decided to have the best of both worlds here, i may do a helper where i specify the parameters and it would create it.  i saw something where more parameters could be set.  has to see how that can work
+        <TextComponent @bind-Value="@player.Name" Style="width: 100%; margin: 2px;" />
+    }
+
+</PopupCenteredStandard>

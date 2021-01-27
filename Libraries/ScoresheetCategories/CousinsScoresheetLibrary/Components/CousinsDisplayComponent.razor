@@ -1,0 +1,9 @@
+﻿@inherits BaseDisplayComponent
+@if (Players.Count == 0)
+{
+    <DisplayWaiting />
+    return;
+}
+<CousinsCore Players="Players"
+                  Categories="@CousinsGlobalClass.Categories"
+                  ReadOnly="true" />

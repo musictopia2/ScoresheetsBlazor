@@ -1,0 +1,8 @@
+﻿@inherits BaseDisplayComponent
+@if (Players.Count == 0)
+{
+    <DisplayWaiting />
+    return;
+}
+<MiscScoresCore Players="Players"
+                    ReadOnly="true" />

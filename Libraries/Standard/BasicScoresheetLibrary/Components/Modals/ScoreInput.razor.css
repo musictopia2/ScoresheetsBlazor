@@ -1,0 +1,61 @@
+﻿.cell {
+    width: 24vmin;
+    height: 24vmin;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.action {
+    width: 24vmin;
+    height: 48vmin;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: 7vmin;
+}
+
+.singlelarge {
+    width: 24vmin;
+    height: 24vmin;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: 7vmin;
+}
+
+.number {
+    font-size: 27vmin;
+}
+
+.hidden {
+    display: none;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.minus {
+    background-color: black;
+    width: 95%;
+    height: 30%;
+}
+
+.side {
+    font-size: 5vmin;
+}
+
+.score {
+    font-size: 15vmin;
+}

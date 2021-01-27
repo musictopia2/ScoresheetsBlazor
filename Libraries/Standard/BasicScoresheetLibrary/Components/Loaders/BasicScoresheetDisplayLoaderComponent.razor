@@ -1,0 +1,8 @@
+﻿@foreach (var p in DataContext!.ScorePages)
+{
+    <div>
+        <button style="margin: 5px; font-size: 10vmin;" @onclick="()=> ChoseScore(p)" class="btn btn-primary">
+            @p
+        </button>
+    </div>
+}

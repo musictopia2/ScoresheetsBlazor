@@ -1,0 +1,29 @@
+﻿@inherits JavascriptComponentBase
+@if (DataContext == null)
+{
+    <div>No Datacontext</div>
+    return;
+}
+@if (_loaded == false)
+{
+    <div>Loading......</div>
+    return;
+}
+@if (DataContext.ScorePages.Count == 0)
+{
+    <div>There was no scores.  Try adding scores to the lists</div>
+    return;
+}
+@if (DataContext.CurrentPage == "")
+{
+    @foreach (var p in DataContext.ScorePages)
+    {
+        <div>
+            <button style="margin: 2px; font-size: 3rem;" @onclick="()=> ChoseScorePage(p)" class="btn btn-primary">
+                @p
+            </button>
+        </div>
+    }
+    return;
+}
+@DataContext.ScoreRendered

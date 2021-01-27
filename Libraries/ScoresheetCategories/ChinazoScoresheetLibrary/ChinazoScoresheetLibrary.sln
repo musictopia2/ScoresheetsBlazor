@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30804.86
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChinazoScoresheetLibrary", "ChinazoScoresheetLibrary.csproj", "{A3E76740-03FE-4586-A6BE-18B9E47B6B4E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BasicScoresheetLibrary", "..\..\Standard\BasicScoresheetLibrary\BasicScoresheetLibrary.csproj", "{6E9D798B-FE9B-41F6-A7F6-FFC6319695B0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A3E76740-03FE-4586-A6BE-18B9E47B6B4E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3E76740-03FE-4586-A6BE-18B9E47B6B4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3E76740-03FE-4586-A6BE-18B9E47B6B4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3E76740-03FE-4586-A6BE-18B9E47B6B4E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6E9D798B-FE9B-41F6-A7F6-FFC6319695B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E9D798B-FE9B-41F6-A7F6-FFC6319695B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E9D798B-FE9B-41F6-A7F6-FFC6319695B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E9D798B-FE9B-41F6-A7F6-FFC6319695B0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {24BE993F-8D3C-4B3E-946E-7DDDC3EFB08B}
+	EndGlobalSection
+EndGlobal

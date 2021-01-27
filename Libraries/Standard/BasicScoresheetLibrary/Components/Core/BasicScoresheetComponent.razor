@@ -1,0 +1,247 @@
+﻿@if (ReadOnly && BaseGlobalClass.NeedsRefresh == false)
+{
+    <div>This was offline mode.  Therefore, cannot do anything.</div>
+    return;
+}
+
+@if (ReadOnly)
+{
+    //i think no need for flexible component because its read only.  which means the scoresheet alone.
+    <div class="customcontainer">
+        <GridContainer Columns="@GetColumns">
+            @foreach (var player in Players)
+            {
+                <GridItem Column="@GetPlayerColumn(player)">
+                    <GridItem Column="@GetPlayerColumn(player)">
+                        @if (string.IsNullOrWhiteSpace(player.Name) == false)
+                        {
+                            <CellComponent TextAlignment="EnumAlignment.Center" TextSize="@TextSize">
+                                @player.Name
+                            </CellComponent>
+                        }
+                        else
+                        {
+                            <CellComponent TextSize="@TextSize" />
+                        }
+                    </GridItem>
+                </GridItem>
+            }
+        </GridContainer>
+        <GridContainer Rows="@GetRows" Columns="@GetColumns">
+            @foreach (var category in Categories)
+            {
+                int row = Categories.IndexOf(category) + 1;
+                <GridItem Row="row">
+                    <CellComponent TextSize="@TextSize">
+                        @category
+                    </CellComponent>
+                </GridItem>
+            }
+            @foreach (var player in Players)
+            {
+                int column = GetPlayerColumn(player);
+                @if (Categories.Count > 0)
+                {
+                    @foreach (var category in Categories)
+                    {
+                        int row = Categories.IndexOf(category) + 1;
+                        <GridItem Row="row" Column="column">
+                            @if (player.Scores[row - 1] != 0)
+                            {
+                                <CellComponent TextSize="@TextSize" TextAlignment="EnumAlignment.Right">
+                                    @player.Scores[row - 1]
+                                </CellComponent>
+                            }
+                            else
+                            {
+                                <CellComponent TextSize="@TextSize" />
+                            }
+                        </GridItem>
+                    }
+                }
+                else
+                {
+                    int row = 0;
+                    @foreach (var score in player.Scores)
+                    {
+                        row++;
+                        <GridItem Row="row" Column="column">
+                            @if (score != 0)
+                            {
+                                <CellComponent TextSize="@TextSize" TextAlignment="EnumAlignment.Right">
+                                    @score
+                                </CellComponent>
+                            }
+                            else
+                            {
+                                <CellComponent TextSize="@TextSize" />
+                            }
+                        </GridItem>
+                    }
+                }
+            }
+        </GridContainer>
+        <GridContainer Columns="@GetColumns">
+            @foreach (var player in Players)
+            {
+                int column = Players.IndexOf(player) + 2;
+                <GridItem Column="@GetPlayerColumn(player)">
+                    <CellComponent TextSize="@TextSize" TextAlignment="EnumAlignment.Right">
+                        @player.Scores.Sum()
+                    </CellComponent>
+                </GridItem>
+            }
+        </GridContainer>
+
+    </div>
+    return;
+}
+@* now for the case where its not readonly *@
+@if (ScoreStorage == null)
+{
+    <div>Needs something for score storage since its not read only</div>
+    return;
+}
+<FlexibleOrientationComponent>
+    <MainContent>
+        <div class="customcontainer">
+            <GridContainer Columns="@GetColumns">
+                @foreach (var player in Players)
+                {
+                    <GridItem Column="@GetPlayerColumn(player)">
+                        <PlayerComponent TextSize="@TextSize" @bind-Value="player.Name" OnChange="OnPersonChange" />
+                    </GridItem>
+                }
+            </GridContainer>
+            <GridContainer Rows="@GetRows" Columns="@GetColumns">
+                @foreach (var category in Categories)
+                {
+                    int row = Categories.IndexOf(category) + 1;
+                    <GridItem Row="row">
+                        <CellComponent TextSize="@TextSize">
+                            @category
+                        </CellComponent>
+                    </GridItem>
+                }
+                @foreach (var player in Players)
+                {
+                    int column = GetPlayerColumn(player);
+
+                    if (Categories.Count > 0)
+                    {
+                        @foreach (var category in Categories)
+                        {
+                            int row = Categories.IndexOf(category) + 1;
+                            <GridItem Row="row" Column="column">
+                                @if (player.Scores[row - 1] != 0)
+                                {
+                                    <CellComponent OnClicked="() => ShowPopup(row - 1, player, category)" 
+                                                   TextSize="@TextSize"
+                                                   TextAlignment="EnumAlignment.Right">
+                                        @player.Scores[row - 1]
+                                    </CellComponent>
+                                }
+                                else
+                                {
+                                    <CellComponent OnClicked="() => ShowPopup(row - 1, player, category)"
+                                                   TextSize="@TextSize"
+                                                   />
+                                }
+                            </GridItem>
+                        }
+                    }
+                    else
+                    {
+                        int row = 0;
+                        @foreach (var score in player.Scores)
+                        {
+                            row++;
+                            int temp = row - 1;
+                            <GridItem Row="row" Column="column">
+                                @if (score != 0)
+                                {
+                                    <CellComponent OnClicked="() => ShowPopup(temp, player, string.Empty)"
+                                                   TextAlignment="EnumAlignment.Right"
+                                                   TextSize="@TextSize"
+                                                   >
+                                        @score
+                                    </CellComponent>
+                                }
+                                else
+                                {
+                                    <CellComponent OnClicked="() => ShowPopup(temp, player, string.Empty)"
+                                                   TextSize="@TextSize"
+                                                   />
+                                }
+                            </GridItem>
+                        }
+                    }
+                }
+            </GridContainer>
+            <GridContainer Columns="@GetColumns">
+                @foreach (var player in Players)
+                {
+                    int column = GetPlayerColumn(player);
+                    <GridItem Column="@column">
+                        <CellComponent TextAlignment="EnumAlignment.Right"
+                                       TextSize="@TextSize"
+                                       >
+                            @player.Scores.Sum()
+                        </CellComponent>
+                    </GridItem>
+                }
+            </GridContainer>
+        </div>
+    </MainContent>
+    <HeaderContent>
+        <NavigationBarContainer Title="@ScoreStorage.Title"
+                                MenuList="_menus"
+                                AlwaysShowBar="true"
+                                CircleColor="aqua"
+                                ShowBack="BaseGlobalClass.HasMainPage"
+                                BackClicked="BackClicked"
+                                >
+            <BarContent>
+                <HorizontalDiv RightOnly="35px">
+                    <SaveComponent SaveClicked="SaveAsync" TargetHeight="3rem" FillColor="aqua" />
+                </HorizontalDiv>
+            </BarContent>
+        </NavigationBarContainer>
+    </HeaderContent>
+    <SideContent>
+        @if (OnScoreChange.HasDelegate && _needsRefresh && BaseGlobalClass.NeedsRefresh)
+        {
+            <div>
+                <button @onclick="RefreshScores" class="btn btn-primary buttonmargins">Refresh Scores</button>
+            </div>
+        }
+        <div>
+            <button @onclick="() => _needsConfirm = true" class="btn btn-primary buttonmargins">Clear Scores</button>
+        </div>
+        @if (AddRowClicked.HasDelegate)
+        {
+            <div>
+                <button class="btn btn-primary buttonmargins" @onclick="() => AddRowClicked.InvokeAsync()">Add Row</button>
+            </div>
+        }
+
+    </SideContent>
+</FlexibleOrientationComponent>
+<ScoreInput @bind-Visible="_visible"
+            Value="_obtained"
+            ValueChanged="ValueChanged"
+            Player="@_name"
+            Category="@_category" />
+@if (_needsConfirm)
+{
+    <ConfirmationBlazor Title="Clear Confirmation"
+                        Message="Are you sure you want to clear out the scores"
+                        Results="FinalConfirm" />
+}
+@if (_needsDefaultPlayers)
+{
+    <DefaultPlayerPopup ScoreStorage="ScoreStorage"
+                        OnCancelAsync="() => _needsDefaultPlayers = false"
+                        OnSaveAsync="RefreshPlayers"
+                        />
+}

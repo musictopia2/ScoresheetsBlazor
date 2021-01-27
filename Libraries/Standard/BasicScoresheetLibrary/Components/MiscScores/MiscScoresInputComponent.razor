@@ -1,0 +1,13 @@
+﻿@inherits BaseInputComponent<IMiscScoreViewModel>
+@if (DataContext!.Players.Count == 0)
+{
+    <div>Loading....</div>
+    return; //could create a loading screen eventually
+}
+<MiscScoresCore ClearClicked="ClearAsync"
+                    Players="DataContext.Players"
+                    OnPersonChange="UpdatePlayersAsync"
+                    OnScoreChange="UpdateScoresAsync"
+                    BackClicked="BackClickedAsync"
+                    ReadOnly="false"
+                    ScoreStorage="Storage" />

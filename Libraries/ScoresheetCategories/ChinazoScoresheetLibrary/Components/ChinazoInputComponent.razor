@@ -1,0 +1,14 @@
+﻿@inherits BaseInputComponent<IChinazoViewModel>
+@if (DataContext!.Players.Count == 0)
+{
+    <div>Loading....</div>
+    return; //could create a loading screen eventually
+}
+<ChinazoCore ClearClicked="ClearAsync"
+                  Players="DataContext.Players"
+                  OnPersonChange="UpdatePlayersAsync"
+                  OnScoreChange="UpdateScoresAsync"
+                  Categories="DataContext.Categories"
+                  BackClicked="BackClickedAsync"
+                  ReadOnly="false"
+                  ScoreStorage="Storage" />

@@ -1,0 +1,9 @@
+﻿@inherits BaseDisplayComponent
+@if (Players.Count == 0)
+{
+    <DisplayWaiting />
+    return;
+}
+<ChinazoCore Players="Players"
+             Categories="ChinazoGlobalClass.Categories"
+             ReadOnly="true" />
